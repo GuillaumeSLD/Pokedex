@@ -1,39 +1,29 @@
-# Étape 1 : Construire le front-end
-FROM node:20-slim AS front
+# Utiliser l'image Node.js officielle comme base
+FROM node:20-slim
 
-WORKDIR /front
+# Installer wget et curl
+RUN apt-get update && apt-get install -y \
+  wget \
+  curl \
+  && rm -rf /var/lib/apt/lists/*
 
-# Copier le fichier package.json et package-lock.json pour le front-end
-COPY ./front/package.json ./front/package-lock.json ./
-RUN npm install
-
-# Copier tous les fichiers du front-end dans l'image
-COPY ./front /front
-
-# Installer http-server pour servir l'application front-end
-RUN npm install -g http-server
-
-# Exposer le port pour le front-end
-EXPOSE 3003
-
-# Commande pour démarrer le serveur front-end
-CMD ["http-server", "dist", "-p", "3003"]
-
-
-# Étape 2 : Construire le back-end
-FROM node:20-slim AS back
-
+# Créer et définir le répertoire de travail
 WORKDIR /back
 
-# Copier le fichier package.json et package-lock.json pour le back-end
-COPY ./back/package.json ./back/package-lock.json ./
+# Copier les fichiers package.json et package-lock.json
+COPY ./back/package*.json ./
+
+# Installer les dépendances
 RUN npm install
 
-# Copier tous les fichiers du back-end dans l'image
+# Copier le reste des fichiers de l'application
 COPY ./back /back
 
-# Exposer le port 3002 pour l'API
+# Copier le répertoire front dans le conteneur back
+COPY ./front /front
+
+# Exposer le port 3002
 EXPOSE 3002
 
-# Commande pour démarrer l'application back-end
+# Commande pour démarrer l'application
 CMD ["npm", "start"]
