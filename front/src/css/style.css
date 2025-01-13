@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap');
+
+body {
+    scrollbar-gutter: stable;
+    font-family: "Archivo", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+
+}
+
+.pkm_img{
+    width: 200px
+}
+
+.pkm_stats_modal{
+    width:100%
+}
+
+.box {
+    width: 100%;
+}
+
+th {
+    text-align: center;
+}
+tbody {
+    scrollbar-width: none;
+}
+abbr{
+    text-decoration: none;
+}
+.hidden {
+    display: none;
+}
+.pkm-card, .modal .close, .edit, .delete-pokemon {
+    cursor: pointer;
+}
+#edited-name {
+    color: #000000;
+    border-radius: .5rem;
+    padding: 0 .5rem;
+}
