@@ -6,6 +6,8 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 
+app.use(express.static("../front/"));
+
 app.use(express.json());
 
 app.use(cors({origin: "*"}));
