@@ -5,7 +5,7 @@ export const container = document.getElementById("main-content");
 export const h1 = document.querySelector("#main-h1");
 
 // Function to inject content into container element
-export const addToContainer = function (fragment) {
+export const addToContainer = (fragment) => {
   container.innerHTML = "";
   container.appendChild(fragment);
 };
