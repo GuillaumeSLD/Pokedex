@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
   && rm -rf /var/lib/apt/lists/*
 
 # Créer et définir le répertoire de travail pour le back-end
-WORKDIR /app/back
+WORKDIR /back
 
 # Copier le fichier package.json et package-lock.json du back-end
 COPY back/package*.json ./
@@ -20,7 +20,7 @@ RUN npm install
 COPY back ./
 
 # Créer et définir le répertoire de travail pour le front-end
-WORKDIR /app/front
+WORKDIR /front
 
 # Copier le fichier package.json et package-lock.json du front-end
 COPY front/package*.json ./
