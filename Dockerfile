@@ -1,39 +1,32 @@
-# Utiliser l'image Node.js officielle comme base
-FROM node:20-slim
+# Étape 1 : Construire le front-end
+FROM node:20-slim AS front
 
-# Installer wget et curl
-RUN apt-get update && apt-get install -y \
-  wget \
-  curl \
-  && rm -rf /var/lib/apt/lists/*
-
-# Créer et définir le répertoire de travail pour le back-end
-WORKDIR /back
-
-# Copier le fichier package.json et package-lock.json du back-end
-COPY back/package*.json ./
-
-# Installer les dépendances du back-end
-RUN npm install
-
-# Copier le reste des fichiers du back-end
-COPY back ./
-
-# Créer et définir le répertoire de travail pour le front-end
 WORKDIR /front
 
-# Copier le fichier package.json et package-lock.json du front-end
-COPY front/package*.json ./
-
-# Installer les dépendances du front-end
+# Copier le fichier package.json et package-lock.json pour le front-end
+COPY ./front/package.json ./front/package-lock.json ./
 RUN npm install
 
-# Copier le reste des fichiers du front-end
-COPY front ./
+# Copier tous les fichiers du front-end dans l'image
+COPY ./front ./
 
-# Exposer les ports des deux applications (ajustez si nécessaire)
-EXPOSE 3000 4200
+# Installer http-server pour servir l'application front-end
+RUN npm install -g http-server
 
-# Commande pour démarrer l'application (ici j'assume que vous voulez démarrer les deux)
-# Vous pouvez remplacer cela par la commande spécifique pour chaque application
-CMD ["sh", "-c", "npm run start --prefix /app/back & npm run start --prefix /app/front"]
+# Étape 2 : Construire le back-end
+FROM node:20-slim AS back
+
+WORKDIR /back
+
+# Copier le fichier package.json et package-lock.json pour le back-end
+COPY ./back/package.json ./back/package-lock.json ./
+RUN npm install
+
+# Copier tous les fichiers du back-end dans l'image
+COPY ./back ./
+
+# Exposer le port 3000 pour le back-end
+EXPOSE 3002
+
+# Commande pour démarrer l'application back-end
+CMD ["npm", "start"]
