@@ -13,22 +13,22 @@ document.addEventListener("DOMContentLoaded", () => {
     displayPokemons();
 
     // Display Pokemons on home nav link click
-    document.getElementById("nav-item-home").addEventListener("click", function (event) {
+    document.getElementById("nav-item-home").addEventListener("click", (event) => {
       displayPokemons();
     });
   
     // Display Pokemons on types nav link click
-    document.getElementById("nav-item-type").addEventListener("click", function (event) {
+    document.getElementById("nav-item-type").addEventListener("click", (event) => {
       displayTypes();
     });
 
     // Display teams on nav link click
-    document.getElementById("nav-item-team").addEventListener("click", function (event) {
+    document.getElementById("nav-item-team").addEventListener("click", (event) => {
       displayTeams();
     });
 
     // Display add team modol on nav link click
-    document.getElementById("nav-item-add-team").addEventListener("click", function (event) {
+    document.getElementById("nav-item-add-team").addEventListener("click", (event) => {
       addTeamModal();
     });
   

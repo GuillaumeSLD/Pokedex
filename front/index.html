@@ -39,7 +39,7 @@
     </header>
 
     <!-- Main content -->
-    <main id="app" class="container mx-auto">
+    <main id="app" class="container mx-auto px-4">
       <h1 id="main-h1" class="text-5xl font-bold text-center mt-8 mb-10 text-gray-600"></h1>
       <div id="main-content" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 items-stretch"></div>
     </main>
@@ -60,12 +60,12 @@
   <!-- Pokemon modal info -->
   <template id="pokemon-modal-template">
     <div class="modal" id="pkm_detail">
-      <div class="modal-card w-full lg:w-8/12 h-full lg:h-auto lg:rounded shadow-lg pe-5 lg:pe-4 bg-gray-100 dark:bg-black">
-        <header class="modal-card-head flex justify-between items-center p-4">
+      <div class="modal-card w-full lg:w-8/12 lg:rounded shadow-lg bg-gray-100 dark:bg-black h-[100dvh] lg:h-auto lg:max-h-[80dvh] flex flex-col">
+        <header class="modal-card-head flex flex-wrap lg:flex-nowrap justify-between items-center p-4 border-b grow-0">
           <h2 class="modal-card-title text-xl font-semibold pkm_name"></h2>
           <button class="btn btn-sm btn-circle btn-ghost text-lg"><i class="fa-solid fa-xmark cursor-pointer close"></i></button>
         </header>
-        <section class="modal-card-body flex flex-row items-center justify-center gap-6 p-4">
+        <section class="modal-card-body flex flex-wrap lg:flex-nowrap flex-row items-center justify-center gap-6 p-4 overflow-y-auto grow">
           <div class="mr-4">
             <img src="./assets/img/1.webp" class="pkm_img_modal" />
           </div>
@@ -123,16 +123,16 @@
             
           </div>
         </section>
-        <footer class="modal-card-foot flex justify-between p-4">
+        <footer class="modal-card-foot flex flex-wrap lg:flex-nowrap justify-between p-4 gap-2 border-t grow-0">
           <div>
-            <form id="form_add_pkm_team" class="flex items-center gap-2">
+            <form id="form_add_pkm_team" class="flex flex-wrap sm:flex-nowrap items-center gap-2">
               <select class="select select-bordered">
                 <option disabled selected>Choisissez une équipe</option>
               </select>
               <button class="btn btn-primary">Ajouter</button>
             </form>
           </div>
-          <button class="btn btn-secondary close">Retour</button>
+          <button class="btn btn-secondary close ml-auto">Retour</button>
         </footer>
       </div>
     </div>

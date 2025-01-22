@@ -2001,6 +2001,10 @@ html {
   margin-top: auto;
 }
 
+.ml-auto {
+  margin-left: auto;
+}
+
 .block {
   display: block;
 }
@@ -2025,6 +2029,54 @@ html {
   height: 100%;
 }
 
+.h-\[70dvh\] {
+  height: 70dvh;
+}
+
+.h-\[80dvh\] {
+  height: 80dvh;
+}
+
+.h-\[100dvh\] {
+  height: 100dvh;
+}
+
+.max-h-\[80vh\] {
+  max-height: 80vh;
+}
+
+.max-h-\[80dvh\] {
+  max-height: 80dvh;
+}
+
+.\!max-h-\[80dvh\] {
+  max-height: 80dvh !important;
+}
+
+.max-h-\[100dvh\] {
+  max-height: 100dvh;
+}
+
+.max-h-\[70dvh\] {
+  max-height: 70dvh;
+}
+
+.max-h-\[60vh\] {
+  max-height: 60vh;
+}
+
+.max-h-\[70vh\] {
+  max-height: 70vh;
+}
+
+.max-h-\[65vh\] {
+  max-height: 65vh;
+}
+
+.max-h-\[6vh\] {
+  max-height: 6vh;
+}
+
 .w-11\/12 {
   width: 91.666667%;
 }
@@ -2035,6 +2087,22 @@ html {
 
 .max-w-\[50vw\] {
   max-width: 50vw;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.grow-0 {
+  flex-grow: 0;
 }
 
 .table-auto {
@@ -2059,6 +2127,10 @@ html {
 
 .flex-col {
   flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .items-center {
@@ -2095,8 +2167,28 @@ html {
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 
+.place-self-end {
+  place-self: end;
+}
+
+.self-end {
+  align-self: flex-end;
+}
+
+.justify-self-end {
+  justify-self: end;
+}
+
 .overflow-x-auto {
   overflow-x: auto;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
+.overflow-y-visible {
+  overflow-y: visible;
 }
 
 .whitespace-nowrap {
@@ -2117,6 +2209,10 @@ html {
 
 .border-b {
   border-bottom-width: 1px;
+}
+
+.border-t {
+  border-top-width: 1px;
 }
 
 .border-gray-300 {
@@ -2161,6 +2257,11 @@ html {
   padding: 1rem;
 }
 
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
@@ -2176,6 +2277,10 @@ html {
 
 .text-center {
   text-align: center;
+}
+
+.text-right {
+  text-align: right;
 }
 
 .text-2xl {
@@ -2278,6 +2383,12 @@ abbr{
   padding: 0 .5rem;
 }
 
+@media (min-width: 640px) {
+  .sm\:flex-nowrap {
+    flex-wrap: nowrap;
+  }
+}
+
 @media (min-width: 768px) {
   .md\:w-8\/12 {
     width: 66.666667%;
@@ -2291,6 +2402,20 @@ abbr{
 @media (min-width: 1024px) {
   .lg\:h-auto {
     height: auto;
+  }
+
+  .lg\:h-\[80dvh\] {
+    height: 80dvh;
+  }
+
+  .lg\:max-h-\[80dvh\] {
+    max-height: 80dvh;
+  }
+
+  @media (min-width: 1024px) {
+    .lg\:lg\:max-h-\[80dvh\] {
+      max-height: 80dvh;
+    }
   }
 
   .lg\:w-1\/2 {
@@ -2307,6 +2432,10 @@ abbr{
 
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .lg\:flex-nowrap {
+    flex-wrap: nowrap;
   }
 
   .lg\:rounded {
