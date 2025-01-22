@@ -43,6 +43,12 @@
       <h1 id="main-h1" class="text-5xl font-bold text-center mt-8 mb-10 text-gray-600"></h1>
       <div id="main-content" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 items-stretch"></div>
     </main>
+
+    <!-- Footer -->
+     <footer class="text-center p-2 bg-primary text-white">
+      <p><small>Site fictif réalisé dans un cadre étudiant.</small></p>
+      © <span id="year">2025</span> Guillaume Salsedo
+     </footer>
   </body>
 
   <!-- Pokemon card template -->
@@ -158,8 +164,8 @@
   <!-- Team details modal -->
   <template id="team-details-modal-template">
     <div class="modal" id="team_modal">
-      <div class="modal-card w-full lg:w-8/12 h-full lg:h-auto lg:rounded shadow-lg p-4 pe-5 lg:pe-4 bg-gray-200 dark:bg-gray-900">
-        <header class="modal-card-head flex justify-between items-center">
+      <div class="modal-card w-full lg:w-8/12 lg:rounded shadow-lg bg-gray-100 dark:bg-black h-[100dvh] lg:h-auto lg:max-h-[80dvh] flex flex-col">
+        <header class="modal-card-head flex flex-wrap lg:flex-nowrap justify-between items-center p-4 border-b grow-0">
           <h2 class="modal-card-title team_name text-xl font-bold"></h2>
           <form class="hidden" id="team-edit-form">
             <input
@@ -173,27 +179,29 @@
             <button class="btn btn-sm btn-circle btn-ghost"><i class="fa-solid fa-xmark cursor-pointer close"></i></button>
           </div>          
         </header>
-        <div class="modal-card-body">
+        <div class="modal-card-body p-4 grow flex flex-col w-[100dvw]">
           <p class="team_description"></p>
-          <table class="pkm-table table-auto w-full text-center">
-            <thead>
-              <tr>
-                <th>N°</th>
-                <th>Nom</th>
-                <th>PV</th>
-                <th>Atk</th>
-                <th>Def</th>
-                <th>Atk Spe</th>
-                <th>Def Spe</th>
-                <th>Vit</th>
-                <th>Types</th>
-                <th>Options</th>
-              </tr>
-            </thead>
-            <tbody id="tbody_team"></tbody>
-          </table>
+          <div class="overflow-x-auto">
+            <table class="pkm-table table table-pin-rows">
+              <thead class="table-header-group">
+                <tr class="table-row">
+                  <th class="table-cell text-left">N°</th>
+                  <th class="table-cell text-left">Nom</th>
+                  <th class="table-cell text-left">PV</th>
+                  <th class="table-cell text-left">Atk</th>
+                  <th class="table-cell text-left">Def</th>
+                  <th class="table-cell text-left">Atk Spe</th>
+                  <th class="table-cell text-left">Def Spe</th>
+                  <th class="table-cell text-left">Vit</th>
+                  <th class="table-cell text-left">Types</th>
+                  <th class="table-cell text-left">Options</th>
+                </tr>
+              </thead>
+              <tbody id="tbody_team" class="table-row-group"></tbody>
+            </table>
+          </div>
         </div>
-        <footer class="modal-card-foot flex justify-between">
+        <footer class="modal-card-foot flex flex-wrap lg:flex-nowrap justify-between p-4 gap-2 border-t grow-0">
           <button class="btn btn-secondary close">Retour</button>
           <button class="btn btn-error delete-team">Supprimer</button>
         </footer>
@@ -204,7 +212,7 @@
   <!-- Add team modal -->
   <template id="add-team-modal-template">
     <div class="modal" id="add_team_modal">
-      <div class="modal-card w-11/12 md:w-8/12 xl:w-4/12 shadow-lg p-4 rounded me-4 bg-gray-200 dark:bg-gray-900">
+      <div class="modal-card w-11/12 md:w-8/12 xl:w-4/12 shadow-lg p-4 rounded bg-gray-100 dark:bg-gray-900">
         <header class="modal-card-head flex justify-between items-center pb-4 border-b border-gray-300">
           <h2 class="text-xl font-bold">Ajouter une équipe</h2>
           <i class="fa-solid fa-xmark close"></i>
